@@ -16,7 +16,7 @@ class WordRubyFromText:
         self.logger.info("Test End")
         
     def main(self,input_file_name,output_file_name):
-        self.logger.info("main Start")
+        self.logger.info(f'main start! output_text_file_name:{output_file_name} input_file_name:{input_file_name}')
         self.test()
         self.logger.info("main End")
 
