@@ -17,6 +17,11 @@ class WordRubyFromText:
         
     def main(self,input_file_name,output_file_name):
         self.logger.info(f'main start! output_text_file_name:{output_file_name} input_file_name:{input_file_name}')
+        
+        # 日本語解析用インスタンスを生成
+        self.logger.info('create MyMecab instance')
+        my_mecab = MyMecab(self.logger)
+                
         self.test()
         self.logger.info("main End")
 
