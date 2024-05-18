@@ -1,4 +1,5 @@
 import MeCab
+from MyMecab import MyMecab
 import sys
 import argparse
 
