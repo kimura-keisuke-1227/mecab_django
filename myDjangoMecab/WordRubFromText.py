@@ -3,6 +3,7 @@ from MyMecab import MyMecab
 import docx
 import sys
 import argparse
+import json
 
 # 親階層配下の他モジュールをインポートできるようにする
 sys.path.append('../')
