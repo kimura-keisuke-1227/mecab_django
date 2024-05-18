@@ -19,10 +19,11 @@ class WordRubyFromText:
     const_str_dir_for_input = 'input'
     const_str_extension_word = '.docx'
     const_str_extension_excel = '.xlsx'
-    const_str_extension_text = '.text'
+    const_str_extension_text = '.txt'
     const_dict_end_of_line = {
         str_key_end_of_line: 1
     }
+    
     def __init__(self) -> None:
         self.logger = MyLogger().logger
         self.logger.info('test')
