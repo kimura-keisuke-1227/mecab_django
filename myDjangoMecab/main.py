@@ -1,4 +1,9 @@
 import MeCab
+import sys
 
-tagger = MeCab.Tagger()
-print(tagger.parse("すもももももももものうち").split())
+# 親階層配下の他モジュールをインポートできるようにする
+sys.path.append('../')
+from MyLogger.MyLogger import MyLogger
+
+logger = MyLogger().logger
+logger.info('test')

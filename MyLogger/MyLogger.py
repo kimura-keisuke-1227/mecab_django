@@ -14,10 +14,10 @@ d = now.strftime('%Y_%m%d_%H%M%S_')
 class MyLogger():
     def __init__(self,log_file_name="python"):
         print('create instance MyLogger')
-        self.log_file_name = os.path.join('log',f'{log_file_name}_{d}.log')
+        self.log_file_name = os.path.join('../log',f'{log_file_name}_{d}.log')
 
-        if not (os.path.isdir('log')):
-            os.mkdir('log')
+        if not (os.path.isdir('../log')):
+            os.mkdir('../log')
         
         self.logger = getLogger(__name__)
         self.handler = FileHandler(self.log_file_name)
