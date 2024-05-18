@@ -1,5 +1,5 @@
 import MeCab
-# from MyMecab import MyMecab
+from MyMecab import MyMecab
 import docx
 import sys
 import argparse
@@ -36,8 +36,8 @@ class WordRubyFromText:
         self.logger.info(f'main start! output_text_file_name:{output_file_name} input_file_name:{input_file_name}')
 
         # 日本語解析用インスタンスを生成
-        # self.logger.info('create MyMecab instance')
-        # my_mecab = MyMecab(self.logger)
+        self.logger.info('create MyMecab instance')
+        my_mecab = MyMecab(self.logger)
 
         # Wordファイルインスタンスを生成
         # self.logger.info('create docx.Document instance')
@@ -55,6 +55,8 @@ class WordRubyFromText:
             with open(input_text_file_path) as f:
                 for line in f:
                     self.logger.info(f'Begin the operation for line:{line}')
+                    my_mecab.get_ruby_list_from_text_in_line(line)
+                    
         except Exception as e:
             self.logger.error(f"{e.__class__.__name__}: {e}")
             print(f"{e.__class__.__name__}: {e}")
