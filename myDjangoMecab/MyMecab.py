@@ -2,7 +2,9 @@ import MeCab
 import jaconv
 import re,sys
 import json
-import MyLogger
+# 親階層配下の他モジュールをインポートできるようにする
+sys.path.append('../')
+from MyLogger.MyLogger import MyLogger
 # from RubyDictJsonMaker import RubyDictJsonMaker
 # from MyRubyTools import MyRubyTools
 
@@ -36,6 +38,8 @@ class MyMecab:
         self.logger.debug(f'{sys._getframe().f_code.co_name} start!')
         # list_of_column = [column_text,column_kana,column_type]
         mecab = MeCab.Tagger()  # MeCabオブジェクトを作成
+        
+        self.logger.info('start mecab.parse!')
         malist = mecab.parse(input_text).split('\n')  # 形態素解析を行う
         
         list_of_line_data = []
@@ -44,9 +48,10 @@ class MyMecab:
         for row in malist:
             # self.logger.info('Row::')
             word_list_in_row = row.replace(',', '\t').split('\t')
-            
+            self.logger.debug(f'word_list_in_row:{word_list_in_row}')
             
             if len(word_list_in_row) < 3:
+                self.logger.info('continue because word_list_in_row{word_list_in_row} is shorter than 3!')
                 continue
             
             # よみがなとひらがな文字を取り出す
