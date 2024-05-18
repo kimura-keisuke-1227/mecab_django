@@ -22,6 +22,11 @@ class WordRubyFromText:
 
 if __name__ == "__main__":
 	print('WordRubyFromText Program Start!')
+	psr = argparse.ArgumentParser(
+        prog='ルビ入りWordファイル作成プログラム',
+        usage='コマンドラインから引数を指定して実行',
+        description='テキストファイルからルビが入ったWordファイルを自動で作成'
+    )
 	instance = WordRubyFromText()
 	instance.main()
 	print('WordRubyFromText Program End!')
