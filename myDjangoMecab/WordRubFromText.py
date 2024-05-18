@@ -1,5 +1,6 @@
 import MeCab
 import sys
+import argparse
 
 # 親階層配下の他モジュールをインポートできるようにする
 sys.path.append('../')
