@@ -3,13 +3,26 @@ from MyMecab import MyMecab
 import docx
 import sys
 import argparse
-import json
+import json,os
+
+str_key_base_text = 'word'
+str_key_ruby_text = 'ruby'
+str_key_end_of_line = 'end_of_line'
 
 # 親階層配下の他モジュールをインポートできるようにする
 sys.path.append('../')
 from MyLogger.MyLogger import MyLogger
 
 class WordRubyFromText:
+    const_str_dir_for_output = 'output'
+    const_str_dir_for_output_excel = 'excelForEdit'
+    const_str_dir_for_input = 'input'
+    const_str_extension_word = '.docx'
+    const_str_extension_excel = '.xlsx'
+    const_str_extension_text = '.text'
+    const_dict_end_of_line = {
+        str_key_end_of_line: 1
+    }
     def __init__(self) -> None:
         self.logger = MyLogger().logger
         self.logger.info('test')
@@ -28,6 +41,10 @@ class WordRubyFromText:
         # Wordファイルインスタンスを生成
         self.logger.info('create docx.Document instance')
         document = docx.Document()
+        
+        # ファイルを読み込んで１行ずつ処理する
+        input_text_file_path = os.path.join(self.const_str_dir_for_input,
+                                            input_file_name + self.const_str_extension_text)
 
         self.test()
         self.logger.info("main End")
